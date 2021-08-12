@@ -6,7 +6,7 @@ bot = telebot.TeleBot(TOKEN)
 
 
 @bot.message_handler(commands=['start', 'help'])
-def help(message: telebot.types.Message):  # эта функция отвечает на команды 'start', 'help'
+def help(message: telebot.types.Message):  
     text = 'Чтобы начать работу введите комманду боту в следующем формате: \n<имя валюты> \
 <имя валюты в которой нужно узнать цену первой валюты> \
 <количество первой валюты>\nУвидеть список доступных валют: /values'
@@ -14,7 +14,7 @@ def help(message: telebot.types.Message):  # эта функция отвеча�
 
 
 @bot.message_handler(commands=['values'])
-def values(message: telebot.types.Message):  # эта функция отвечает на команды 'start', 'help'
+def values(message: telebot.types.Message): 
     text = ''
     for key in keys.keys():
         text = '\n'.join((text, key,))
@@ -50,4 +50,4 @@ def convert(message: telebot.types.Message):
         bot.send_message(message.chat.id, text)
 
 
-bot.polling()  # запуск бота
+bot.polling() 
